@@ -23,7 +23,8 @@ def scatter(data: Union[pd.DataFrame, Sequence[np.ndarray]], x_col: str = 'X', y
                 'marker': 'o',
                 'linestyle': '',
                 'ms': 6,          # Marker size
-                'show': True      # Call plt.show() at the end
+                'show': True,     # Call plt.show() at the end
+                'legend': True    # Add a legend when using groupby
         opt (dict, optional): Dictionary to override default behavior/options.
             Defaults:
                 'dropna': True    # Drop rows with NaN in x_col or y_col
@@ -45,7 +46,8 @@ def scatter(data: Union[pd.DataFrame, Sequence[np.ndarray]], x_col: str = 'X', y
         'marker': 'o',
         'linestyle': '',
         'ms': 6,
-        'show': True
+        'show': True,
+        'legend': True
     }
     if fmt is None: fmt = {}
     for key in fmt_default:
@@ -103,10 +105,11 @@ def scatter(data: Union[pd.DataFrame, Sequence[np.ndarray]], x_col: str = 'X', y
                     color = colors[i]
                     ax.plot(group[x_col], group[y_col], label=name,
                             marker=fmt['marker'], linestyle=fmt['linestyle'], ms=fmt['ms'], color=color)
-                # Place legend outside plot area if possible, adjust as needed
-                ax.legend(bbox_to_anchor=(1.02, 1.0), loc='upper left', borderaxespad=0.)
-                # Adjust layout to prevent legend overlap
-                plt.tight_layout(rect=[0, 0, 0.85, 1]) # Adjust right boundary to make space for legend
+                if fmt['legend']:
+                    # Place legend outside plot area if possible, adjust as needed
+                    ax.legend(bbox_to_anchor=(1.02, 1.0), loc='upper left', borderaxespad=0.)
+                    # Adjust layout to prevent legend overlap
+                    plt.tight_layout(rect=[0, 0, 0.85, 1]) # Adjust right boundary to make space for legend
             except Exception as e:
                  print(f"An error occurred during grouped plotting: {e}")
                  # Fallback or re-raise depending on desired robustness

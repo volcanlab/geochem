@@ -156,7 +156,7 @@ tests/               Pytest test suite
 
 ## Author
 
-José Luis Palma, PhD  
-Departament of Earth Sciences
-University of Concepción
-jose at udec.cl
+José Luis Palma, PhD.   
+Department of Earth Sciences. 
+University of Concepción. Chile.  
+jose at udec.cl. 

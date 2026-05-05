@@ -1,0 +1,35 @@
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Test, lint, and type-check caches
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# Build and packaging artifacts
+build/
+dist/
+*.egg-info/
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/
+
+# Local editor and OS files
+.DS_Store
+.vscode/
+.idea/
+
+# Local environments
+.env
+.venv/
+venv/
+env/
+
+# Developer tools and reference material
+CLAUDE.md
+pingu-r929/
